@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ & Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 14px; /* Example font size */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .main-content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .faq {
+            height: 380px; /* Set the desired height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+            padding: 10px; /* Optional: Add some padding */
+            margin: 20px 0;
+        }
+        .faq-button {
+            display: block;
+            width: 100%;
+            background-color: #cecccc;
+            color: rgb(0, 0, 0);
+            text-align: left;
+            padding: 10px;
+            border: none;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: inherit; /* Inherit font size from parent (.faq) */
+        }
+        .faq-dropdown {
+            display: none;
+            background-color: #ffffff;
+            border: 3px solid #f9f9f9;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            padding: 10px;
+            font-size: inherit; /* Inherit font size from parent (.faq) */
+        }
+        .faq-dropdown.active {
+            display: block;
+        }
+        .faq-button:hover {
+            background-color: #caccce;
+        }
+        .appointment-container {
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h1>Frequently Asked Questions</h1>
+            <div class="appointment-container">
+                <div class="faq">
+                    <button class="faq-button" onclick="toggleDropdowns('1')">Q1: Ada kesalahan pada hasil perencanaan</button>
+                    <div class="faq-dropdown group1">Cek Kualitas KAK</div>
+                    <div class="faq-dropdown group1">Cek kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak</div>
+                    <div class="faq-dropdown group1">Hasil pekerjaan mengikuti ketentuan pada KAK, kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak</div>
+                    <div class="faq-dropdown group1">Hasil perencanaan dapat diaplikasikan</div>
+                    
+                    <button class="faq-button" onclick="toggleDropdowns('2')">Q2: Perbedaan antara gambar perencanaan dengan pelaksanaan di lapangan</button>
+                    <div class="faq-dropdown group2">Cek ketentuan pada kontrak, apakah konsultan perencana bertanggung jawab memperbaiki gambar jika ada perubahan pelaksanaan di lapangan</div>
+                    <div class="faq-dropdown group2">Jika tidak, perubahan di lapangan akan dituangkan pada gambar shop drawing dengan justifikasi teknis oleh kontraktor pelaksana</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('3')">Q3: Antara gambar dengan RAB (volume dan spesifikasi teknis) tidak sinkron</button>
+                    <div class="faq-dropdown group3">Apakah volume pada gambar lebih besar daripada RAB atau sebaliknya?</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('4')">Q4: Gambar perencanaan kurang detail</button>
+                    <div class="faq-dropdown group4">Cek KAK</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('5')">Q5: Lambat menindaklanjuti perubahan pelaksanaan di lapangan</button>
+                    <div class="faq-dropdown group5">Cek ketentuan pada kontrak, apakah konsultan perencana bertanggung jawab memperbaiki gambar jika ada perubahan pelaksanaan di lapangan</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('6')">Q6: Hasil pekerjaan memerlukan perbaikan/penggantian agar sesuai dengan ketentuan dalam kontrak</button>
+                    <div class="faq-dropdown group6">Cek kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak, rencana kerja dan syarat-syarat</div>
+                    <div class="faq-dropdown group6">Cek justifikasi teknis, berapa persen hasil pekerjaan memerlukan perbaikan/penggantian agar sesuai dengan ketentuan dalam kontrak</div>
+                    <div class="faq-dropdown group6">Hasil pekerjaan mengikuti gambar perencanaan dan ketentuan pada kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak, rencana kerja dan syarat-syarat</div>
+                    <div class="faq-dropdown group6">Jika pada pelaksanaan pekerjaan ada perencanaan yang tidak dapat dilaksanakan, pelaksana membuat justifikasi teknis dan perubahan tersebut dituangkan pada shop drawing</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('7')">Q7: Tenaga teknis (project manager, site manager, pelaksana) sering tidak hadir di lapangan</button>
+                    <div class="faq-dropdown group7">Cek kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak, rencana kerja dan syarat-syarat</div>
+                    <div class="faq-dropdown group7">Apakah kontrak pelaksanaan mengatur jadwal kerja tenaga teknis di lapangan</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('8')">Q8: Pengiriman material sering terlambat sehingga pelaksanaan pekerjaan terhambat</button>
+                    <div class="faq-dropdown group8">Cek notulen rapat/reviu terhadap keterlambatan pekerjaan, apa solusi/tindak lanjut dari pelaksana dan PPK</div>
+                    <div class="faq-dropdown group8">Cek kualifikasi kontraktor pelaksana, apakah melakukan pengendalian biaya</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('9')">Q9: Alat pelindung diri dan alat pelindung kerja selama pelaksanaan pekerjaan tidak terpenuhi</button>
+                    <div class="faq-dropdown group9">Cek kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak, rencana kerja dan syarat-syarat</div>
+                    <div class="faq-dropdown group9">Apakah PPK memberikan teguran kepada pelaksana</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('10')">Q10: Kebersihan area kerja kurang</button>
+                    <div class="faq-dropdown group10">Cek kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak, rencana kerja dan syarat-syarat, apakah mencakup aspek lingkungan</div>
+                    <div class="faq-dropdown group10">Apakah PPK memberikan teguran kepada pelaksana</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('11')">Q11: Penyelesaian pekerjaan terlambat dari waktu yang ditetapkan dalam kontrak</button>
+                    <div class="faq-dropdown group11">Cek notulen rapat/reviu terhadap keterlambatan pekerjaan, apa solusi/tindak lanjut dari pelaksana dan PPK</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('12')">Q12: Progres pekerjaan tidak sesuai dengan jadwal pelaksanaan pekerjaan</button>
+                    <div class="faq-dropdown group12">Cek notulen rapat/reviu terhadap keterlambatan pekerjaan, apa solusi/tindak lanjut dari pelaksana dan PPK</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('13')">Q13: Tenaga administrasi tidak ada sehingga koordinasi terkait administrasi pekerjaan menjadi sulit</button>
+                    <div class="faq-dropdown group13">Cek kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak, rencana kerja dan syarat-syarat, apakah mengatur tenaga administrasi/pemenuhan administrasi pekerjaan</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('14')">Q14: Lambat merespon terhadap permasalahan dan sulit diajak berdiskusi dalam penyelesaian pelaksanaan pekerjaan</button>
+                    <div class="faq-dropdown group14">Cek kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak, rencana kerja dan syarat-syarat, apakah mengatur manajemen waktu respon dalam menyelesaikan pekerjaan</div>
+
+                    <button class="faq-button" onclick="toggleDropdowns('15')">Q15: Pemenuhan administrasi pekerjaan (laporan, memo, peringatan) lambat</button>
+                    <div class="faq-dropdown group15">Cek kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak, apakah sudah mencakup detail pelaksanaan monitoring dan evaluasi pekerjaan</div>
+                    <div class="faq-dropdown group15">Hasil pekerjaan mengikuti ketentuan pada kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak</div>          
+                    
+                    <button class="faq-button" onclick="toggleDropdowns('16')">Q16: Kurang komunikasi antara PPK dengan tenaga teknis sehingga mempengaruhi waktu pelaksanaan pekerjaan</button>
+                    <div class="faq-dropdown group16">Cek kontrak, syarat-syarat umum kontrak, syarat-syarat khusus kontrak, apakah mengatur manajemen waktu respon dalam menyelesaikan pekerjaan</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript function to toggle all dropdowns for a question
+        function toggleDropdowns(group) {
+            var dropdowns = document.querySelectorAll('.faq-dropdown.group' + group);
+            dropdowns.forEach(function(dropdown) {
+                dropdown.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
